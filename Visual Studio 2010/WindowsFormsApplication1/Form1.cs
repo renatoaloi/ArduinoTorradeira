@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO.Ports;
 
 namespace WindowsFormsApplication1
 {
@@ -26,6 +27,8 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             this.pictureBox1.Image = (Image)this.bmp;
+
+            ListarPortas();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -88,7 +91,7 @@ namespace WindowsFormsApplication1
         {
             if (this.button3.Text != "Fechar COM")
             {
-                serialPort1.PortName = this.textBox4.Text;
+                serialPort1.PortName = this.portNames.SelectedItem.ToString();
                 serialPort1.Open();
                 this.button3.Text = "Fechar COM";
             }
@@ -126,6 +129,24 @@ namespace WindowsFormsApplication1
                     this.label4.Text = texto;
                     this.button1_Click(null, null);
                 }
+            }
+        }
+
+        //Ação do Click do Menu De Contexto que atualiza as portas de Comunicação (Caso o arduino seja plugado após o inicio do programa.)
+        private void atualizarPortasSeriaisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListarPortas();
+        }
+
+        /// <summary>
+        /// Função usada para adicionar os nomes das Portas no ComboBox Exibido na tela!
+        /// </summary>
+        private void ListarPortas()
+        {
+            portNames.Items.Clear();
+            foreach (string serial in SerialPort.GetPortNames())
+            {
+                portNames.Items.Add(serial);
             }
         }
     }

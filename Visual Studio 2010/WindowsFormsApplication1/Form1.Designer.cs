@@ -41,9 +41,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.portNames = new System.Windows.Forms.ComboBox();
+            this.contexMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.atualizarPortasSeriaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contexMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -149,14 +152,6 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "label4";
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(13, 92);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(67, 20);
-            this.textBox4.TabIndex = 11;
-            this.textBox4.Text = "COM18";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -166,13 +161,36 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Serial Monitor:";
             // 
+            // portNames
+            // 
+            this.portNames.FormattingEnabled = true;
+            this.portNames.Location = new System.Drawing.Point(13, 92);
+            this.portNames.Name = "portNames";
+            this.portNames.Size = new System.Drawing.Size(76, 21);
+            this.portNames.TabIndex = 13;
+            // 
+            // contexMenu
+            // 
+            this.contexMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.atualizarPortasSeriaisToolStripMenuItem});
+            this.contexMenu.Name = "contexMenu";
+            this.contexMenu.Size = new System.Drawing.Size(193, 26);
+            // 
+            // atualizarPortasSeriaisToolStripMenuItem
+            // 
+            this.atualizarPortasSeriaisToolStripMenuItem.Name = "atualizarPortasSeriaisToolStripMenuItem";
+            this.atualizarPortasSeriaisToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.atualizarPortasSeriaisToolStripMenuItem.Text = "Atualizar Portas Seriais";
+            this.atualizarPortasSeriaisToolStripMenuItem.Click += new System.EventHandler(this.atualizarPortasSeriaisToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 349);
+            this.ContextMenuStrip = this.contexMenu;
+            this.Controls.Add(this.portNames);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
@@ -188,6 +206,7 @@
             this.Text = "Monitor de Temperatura para Arduino (via Serial)";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contexMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,8 +226,10 @@
         private System.Windows.Forms.Label label3;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox portNames;
+        private System.Windows.Forms.ContextMenuStrip contexMenu;
+        private System.Windows.Forms.ToolStripMenuItem atualizarPortasSeriaisToolStripMenuItem;
     }
 }
 
