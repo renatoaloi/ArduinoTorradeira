@@ -91,7 +91,14 @@ namespace WindowsFormsApplication1
         {
             if (this.button3.Text != "Fechar COM")
             {
-                serialPort1.PortName = this.portNames.SelectedItem.ToString();
+                if (this.portNames.SelectedIndex > -1)
+                {
+                    serialPort1.PortName = this.portNames.SelectedItem.ToString();
+                }
+                else
+                {
+                    serialPort1.PortName = this.portNames.Text;
+                }
                 serialPort1.Open();
                 this.button3.Text = "Fechar COM";
             }
